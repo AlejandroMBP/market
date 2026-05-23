@@ -22,9 +22,19 @@
                         Usuarios
                     </x-nav-link>
                 </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.*')">
                         Roles
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.*')">
+                        Categorias
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('proveedores.index')" :active="request()->routeIs('proveedores.*')">
+                        Proveedores
                     </x-nav-link>
                 </div>
             </div>
