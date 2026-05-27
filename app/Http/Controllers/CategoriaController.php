@@ -59,7 +59,6 @@ class CategoriaController extends Controller
             ->with('success', 'Categoria eliminada correctamente.');
     }
 
-    // al ser una tabla
     private function validateCategoria(Request $request, ?Categoria $categoria = null): array
     {
         return $request->validate([

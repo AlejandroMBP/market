@@ -5,9 +5,11 @@
                 Categorias
             </h2>
 
-            <a href="{{ route('categorias.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                Nuevo categoria
-            </a>
+            @can('categorias.crear')
+                <a href="{{ route('categorias.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                    Nueva categoria
+                </a>
+            @endcan
         </div>
     </x-slot>
 
@@ -42,20 +44,22 @@
                                         <td class="px-4 py-3 text-right text-sm">
                                             <div class="flex justify-end gap-3">
                                                 <a href="{{ route('categorias.show', $categoria) }}" class="text-indigo-600 hover:text-indigo-900">Ver</a>
-
+                                                @can('categorias.editar')
                                                     <a href="{{ route('categorias.edit', $categoria) }}" class="text-yellow-600 hover:text-yellow-900">Editar</a>
+                                                @endcan
+                                                @can('categorias.eliminar')
                                                     <form method="POST" action="{{ route('categorias.destroy', $categoria) }}" onsubmit="return confirm('¿Eliminar esta categoria?')">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="text-red-600 hover:text-red-900">Eliminar</button>
                                                     </form>
-
+                                                @endcan
                                             </div>
                                         </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="4" class="px-4 py-6 text-center text-sm text-gray-500">
+                                        <td colspan="5" class="px-4 py-6 text-center text-sm text-gray-500">
                                             No hay categorias registradas.
                                         </td>
                                     </tr>

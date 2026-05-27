@@ -7,7 +7,7 @@
 
     <div>
         <x-input-label for="descripcion" value="Descripcion" />
-        <x-text-input id="descripcion" name="descripcion" type="text" class="mt-1 block w-full" :value="old('descripcion', $categoria->descripcion ?? '')" required autofocus />
+        <textarea id="descripcion" name="descripcion" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">{{ old('descripcion', $categoria->descripcion ?? '') }}</textarea>
         <x-input-error class="mt-2" :messages="$errors->get('descripcion')" />
     </div>
 

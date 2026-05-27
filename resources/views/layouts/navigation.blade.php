@@ -16,27 +16,77 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                {{-- @can('ventas.ver')
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('ventas.index')" :active="request()->routeIs('ventas.*')">
+                            Ventas
+                        </x-nav-link>
+                    </div>
+                @endcan
 
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.*')">
-                        Usuarios
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.*')">
-                        Roles
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.*')">
-                        Categorias
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('proveedores.index')" :active="request()->routeIs('proveedores.*')">
-                        Proveedores
-                    </x-nav-link>
-                </div>
+                @can('cajas.ver')
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('cajas.index')" :active="request()->routeIs('cajas.*')">
+                            Caja
+                        </x-nav-link>
+                    </div>
+                @endcan --}}
+
+                @can('productos.ver')
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('productos.index')" :active="request()->routeIs('productos.*')">
+                            Productos
+                        </x-nav-link>
+                    </div>
+                @endcan
+
+                @can('categorias.ver')
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.*')">
+                            Categorias
+                        </x-nav-link>
+                    </div>
+                @endcan
+
+                @can('proveedores.ver')
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('proveedores.index')" :active="request()->routeIs('proveedores.*')">
+                            Proveedores
+                        </x-nav-link>
+                    </div>
+                @endcan
+
+                @can('compras.ver')
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('compras.index')" :active="request()->routeIs('compras.*')">
+                            Compras
+                        </x-nav-link>
+                    </div>
+                @endcan
+
+                {{-- @can('movimientos-stock.ver')
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('movimientos-stock.index')" :active="request()->routeIs('movimientos-stock.*')">
+                            Inventario
+                        </x-nav-link>
+                    </div>
+                @endcan --}}
+
+                @can('usuarios.ver')
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.*')">
+                            Usuarios
+                        </x-nav-link>
+                    </div>
+                @endcan
+
+                @can('roles.ver')
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.*')">
+                            Roles
+                        </x-nav-link>
+                    </div>
+                @endcan
             </div>
 
             <!-- Settings Dropdown -->
@@ -91,6 +141,60 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            {{-- @can('ventas.ver')
+                <x-responsive-nav-link :href="route('ventas.index')" :active="request()->routeIs('ventas.*')">
+                    Ventas
+                </x-responsive-nav-link>
+            @endcan
+
+            @can('cajas.ver')
+                <x-responsive-nav-link :href="route('cajas.index')" :active="request()->routeIs('cajas.*')">
+                    Caja
+                </x-responsive-nav-link>
+            @endcan --}}
+
+            @can('productos.ver')
+                <x-responsive-nav-link :href="route('productos.index')" :active="request()->routeIs('productos.*')">
+                    Productos
+                </x-responsive-nav-link>
+            @endcan
+
+            @can('categorias.ver')
+                <x-responsive-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.*')">
+                    Categorias
+                </x-responsive-nav-link>
+            @endcan
+
+            @can('proveedores.ver')
+                <x-responsive-nav-link :href="route('proveedores.index')" :active="request()->routeIs('proveedores.*')">
+                    Proveedores
+                </x-responsive-nav-link>
+            @endcan
+
+            @can('compras.ver')
+                <x-responsive-nav-link :href="route('compras.index')" :active="request()->routeIs('compras.*')">
+                    Compras
+                </x-responsive-nav-link>
+            @endcan
+
+            @can('movimientos-stock.ver')
+                <x-responsive-nav-link :href="route('movimientos-stock.index')" :active="request()->routeIs('movimientos-stock.*')">
+                    Inventario
+                </x-responsive-nav-link>
+            @endcan
+
+            @can('usuarios.ver')
+                <x-responsive-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.*')">
+                    Usuarios
+                </x-responsive-nav-link>
+            @endcan
+
+            @can('roles.ver')
+                <x-responsive-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.*')">
+                    Roles
+                </x-responsive-nav-link>
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->

@@ -2,35 +2,33 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+#[Fillable(['compra_id', 'producto_id', 'cantidad', 'precio_compra', 'subtotal'])]
 class DetalleCompra extends Model
 {
     use SoftDeletes;
 
     protected $table = 'detalle_compras';
 
-    protected $fillable = [
-        'compra_id',
-        'producto_id',
-        'cantidad',
-        'precio_compra',
-        'subtotal',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'cantidad' => 'integer',
+            'precio_compra' => 'decimal:2',
+            'subtotal' => 'decimal:2',
+        ];
+    }
 
-    protected $casts = [
-        'cantidad' => 'integer',
-        'precio_compra' => 'decimal:2',
-        'subtotal' => 'decimal:2',
-    ];
-
-    public function compra()
+    public function compra(): BelongsTo
     {
         return $this->belongsTo(Compra::class);
     }
 
-    public function producto()
+    public function producto(): BelongsTo
     {
         return $this->belongsTo(Producto::class);
     }

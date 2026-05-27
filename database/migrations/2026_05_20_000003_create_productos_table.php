@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('stock_minimo')->default(5);
             $table->string('unidad_medida', 50)->default('unidad');
             $table->string('imagen')->nullable();
-            $table->boolean('estado')->default(1);
+            $table->boolean('estado')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

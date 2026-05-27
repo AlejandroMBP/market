@@ -1,0 +1,7 @@
+<x-app-layout>
+    <x-slot name="header"><h2 class="font-semibold text-xl text-gray-800 leading-tight">Movimientos de stock</h2></x-slot>
+    <div class="py-12"><div class="max-w-7xl mx-auto sm:px-6 lg:px-8"><div class="bg-white shadow-sm sm:rounded-lg"><div class="p-6 overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200"><thead><tr><th class="px-4 py-3 text-left text-xs text-gray-500 uppercase">Fecha</th><th class="px-4 py-3 text-left text-xs text-gray-500 uppercase">Producto</th><th class="px-4 py-3 text-left text-xs text-gray-500 uppercase">Tipo</th><th class="px-4 py-3 text-left text-xs text-gray-500 uppercase">Cantidad</th><th class="px-4 py-3 text-left text-xs text-gray-500 uppercase">Stock</th></tr></thead><tbody class="divide-y divide-gray-200">@forelse ($movimientos as $movimiento)<tr><td class="px-4 py-3 text-sm">{{ $movimiento->fecha->format('d/m/Y H:i') }}</td><td class="px-4 py-3 text-sm">{{ $movimiento->producto->nombre }}</td><td class="px-4 py-3 text-sm">{{ $movimiento->tipo_movimiento }}</td><td class="px-4 py-3 text-sm">{{ $movimiento->cantidad }}</td><td class="px-4 py-3 text-sm">{{ $movimiento->stock_anterior }} -> {{ $movimiento->stock_nuevo }}</td></tr>@empty<tr><td colspan="5" class="px-4 py-6 text-center text-sm text-gray-500">No hay movimientos registrados.</td></tr>@endforelse</tbody></table>
+        <div class="mt-6">{{ $movimientos->links() }}</div>
+    </div></div></div></div>
+</x-app-layout>

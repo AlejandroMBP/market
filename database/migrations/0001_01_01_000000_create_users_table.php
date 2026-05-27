@@ -13,19 +13,17 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');//varchar
-            //identificador  email CI DNI
-            $table->string('email')->unique();//varchar y sera unico no permite nulos
-            $table->timestamp('email_verified_at')->nullable(); //fecha va permitir nulos
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            // LO PUEDEN PERDER
-            $table->String('telefono', 30) ->nullable();//limite de 30 caracteres
+            $table->string('telefono', 30)->nullable();
             $table->text('direccion')->nullable();
             $table->string('foto')->nullable();
-            $table->boolean('estado')->default(1);// tiene un valor por defecto
+            $table->boolean('estado')->default(true);
             $table->rememberToken();
-            $table->timestamps();// create_at y update_at
-            $table->softDeletes();// delete_at
+            $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

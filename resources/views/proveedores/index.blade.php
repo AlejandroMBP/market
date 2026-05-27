@@ -5,9 +5,11 @@
                 Proveedores
             </h2>
 
+            @can('proveedores.crear')
                 <a href="{{ route('proveedores.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
                     Nuevo proveedor
                 </a>
+            @endcan
         </div>
     </x-slot>
 
@@ -44,12 +46,16 @@
                                         <td class="px-4 py-3 text-right text-sm">
                                             <div class="flex justify-end gap-3">
                                                 <a href="{{ route('proveedores.show', $proveedor) }}" class="text-indigo-600 hover:text-indigo-900">Ver</a>
+                                                @can('proveedores.editar')
                                                     <a href="{{ route('proveedores.edit', $proveedor) }}" class="text-yellow-600 hover:text-yellow-900">Editar</a>
+                                                @endcan
+                                                @can('proveedores.eliminar')
                                                     <form method="POST" action="{{ route('proveedores.destroy', $proveedor) }}" onsubmit="return confirm('¿Eliminar este proveedor?')">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="text-red-600 hover:text-red-900">Eliminar</button>
                                                     </form>
+                                                @endcan
                                             </div>
                                         </td>
                                     </tr>

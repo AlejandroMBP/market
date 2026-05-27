@@ -13,19 +13,48 @@ class RoleSeeder extends Seeder
     {
         app(PermissionRegistrar::class)->forgetCachedPermissions();
 
-        $administrador = Role::firstOrCreate([
-            'name' => 'administrador',
-            'guard_name' => 'web',
-        ]);
+        $roles = [
+            'administrador' => Permission::pluck('name')->all(),
+            'supervisor' => [
+                'productos.ver',
+                'productos.crear',
+                'productos.editar',
+                'categorias.ver',
+                'categorias.crear',
+                'categorias.editar',
+                'proveedores.ver',
+                'proveedores.crear',
+                'proveedores.editar',
+                'cajas.ver',
+                'cajas.crear',
+                'cajas.editar',
+                'compras.ver',
+                'compras.crear',
+                'ventas.ver',
+                'ventas.crear',
+                'movimientos-stock.ver',
+                'reportes.ver',
+            ],
+            'cajero' => [
+                'productos.ver',
+                'cajas.ver',
+                'cajas.crear',
+                'cajas.editar',
+                'ventas.ver',
+                'ventas.crear',
+                'movimientos-stock.ver',
+            ],
+        ];
 
-        $usuario = Role::firstOrCreate([
-            'name' => 'usuario',
-            'guard_name' => 'web',
-        ]);
+        foreach ($roles as $roleName => $permissions) {
+            $role = Role::firstOrCreate([
+                'name' => $roleName,
+                'guard_name' => 'web',
+            ]);
 
-        $administrador->syncPermissions(Permission::all());
-        $usuario->syncPermissions([
-            'usuarios.ver',
-        ]);
+            $role->syncPermissions($permissions);
+        }
+
+        Role::whereIn('name', ['usuario', 'inventario', 'reportes', 'consulta'])->delete();
     }
 }

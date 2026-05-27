@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            if (! Schema::hasColumn('users', 'two_factor_enabled')) {
+                $table->boolean('two_factor_enabled')->default(true)->after('estado');
+            }
+
+            if (! Schema::hasColumn('users', 'two_factor_code')) {
+                $table->string('two_factor_code')->nullable()->after('two_factor_enabled');
+            }
+
+            if (! Schema::hasColumn('users', 'two_factor_expires_at')) {
+                $table->timestamp('two_factor_expires_at')->nullable()->after('two_factor_code');
+            }
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            foreach (['two_factor_expires_at', 'two_factor_code', 'two_factor_enabled'] as $column) {
+                if (Schema::hasColumn('users', $column)) {
+                    $table->dropColumn($column);
+                }
+            }
+        });
+    }
+};
