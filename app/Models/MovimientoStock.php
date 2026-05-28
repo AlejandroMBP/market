@@ -7,7 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-#[Fillable(['producto_id', 'user_id', 'tipo_movimiento', 'referencia_id', 'referencia_tipo', 'stock_anterior', 'cantidad', 'stock_nuevo', 'motivo', 'fecha'])]
+#[Fillable([
+    'producto_id',
+    'user_id',
+    'tipo_movimiento',
+    'referencia_id',
+    'referencia_tipo',
+    'stock_anterior',
+    'cantidad',
+    'stock_nuevo',
+    'motivo',
+    'fecha'
+    ])]
 class MovimientoStock extends Model
 {
     use SoftDeletes;

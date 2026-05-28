@@ -13,7 +13,7 @@
                     <p class="mt-1 text-sm text-gray-600">Resumen operativo del minimarket para el dia de hoy.</p>
                 </div>
 
-                {{-- <div class="mb-6 bg-white p-6 shadow-sm sm:rounded-lg">
+                <div class="mb-6 bg-white p-6 shadow-sm sm:rounded-lg">
                     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
                             <h4 class="font-semibold text-gray-900">Reportes</h4>
@@ -24,7 +24,7 @@
                             <a href="{{ route('reportes.index') }}" class="inline-flex items-center rounded-md border border-gray-300 px-4 py-2 text-xs font-semibold uppercase text-gray-700 hover:bg-gray-50">Ir a reportes</a>
                         </div>
                     </div>
-                </div> --}}
+                </div>
 
                 <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <div class="bg-white p-6 shadow-sm sm:rounded-lg">
@@ -54,10 +54,10 @@
                         <div class="mt-2 text-2xl font-semibold text-gray-900">{{ $productosActivos }}</div>
                     </a>
 
-                    {{-- <a href="{{ route('reportes.index') }}" class="bg-white p-6 shadow-sm sm:rounded-lg hover:bg-gray-50">
+                    <a href="{{ route('reportes.index') }}" class="bg-white p-6 shadow-sm sm:rounded-lg hover:bg-gray-50">
                         <div class="text-sm font-medium text-gray-500">Productos bajo stock</div>
                         <div class="mt-2 text-2xl font-semibold text-gray-900">{{ $productosBajoStock }}</div>
-                    </a> --}}
+                    </a>
 
                     <a href="{{ route('usuarios.index') }}" class="bg-white p-6 shadow-sm sm:rounded-lg hover:bg-gray-50">
                         <div class="text-sm font-medium text-gray-500">Usuarios activos</div>

@@ -8,7 +8,22 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-#[Fillable(['cliente_id', 'cliente_documento', 'cliente_nombre', 'caja_id', 'user_id', 'metodo_pago_id', 'metodo_pago', 'fecha', 'subtotal', 'descuento', 'total', 'monto_pagado', 'cambio', 'estado', 'observacion'])]
+#[Fillable([
+    'cliente_id',
+'cliente_documento',
+ 'cliente_nombre',
+  'caja_id',
+   'user_id',
+    'metodo_pago_id',
+     'metodo_pago',
+      'fecha',
+       'subtotal',
+        'descuento',
+         'total',
+          'monto_pagado',
+           'cambio',
+            'estado',
+             'observacion'])]
 class Venta extends Model
 {
     use SoftDeletes;

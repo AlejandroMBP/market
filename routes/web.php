@@ -63,13 +63,13 @@ Route::middleware('auth')->group(function () {
     Route::put('/proveedores/{proveedor}', [ProveedorController::class, 'update'])->middleware('permission:proveedores.editar')->name('proveedores.update');
     Route::delete('/proveedores/{proveedor}', [ProveedorController::class, 'destroy'])->middleware('permission:proveedores.eliminar')->name('proveedores.destroy');
 
-    // Route::get('/cajas', [CajaController::class, 'index'])->middleware('permission:cajas.ver')->name('cajas.index');
-    // Route::get('/cajas/create', [CajaController::class, 'create'])->middleware('permission:cajas.crear')->name('cajas.create');
-    // Route::post('/cajas', [CajaController::class, 'store'])->middleware('permission:cajas.crear')->name('cajas.store');
-    // Route::get('/cajas/{caja}', [CajaController::class, 'show'])->middleware('permission:cajas.ver')->name('cajas.show');
-    // Route::get('/cajas/{caja}/edit', [CajaController::class, 'edit'])->middleware('permission:cajas.editar')->name('cajas.edit');
-    // Route::put('/cajas/{caja}', [CajaController::class, 'update'])->middleware('permission:cajas.editar')->name('cajas.update');
-    // Route::delete('/cajas/{caja}', [CajaController::class, 'destroy'])->middleware('permission:cajas.eliminar')->name('cajas.destroy');
+    Route::get('/cajas', [CajaController::class, 'index'])->middleware('permission:cajas.ver')->name('cajas.index');
+    Route::get('/cajas/create', [CajaController::class, 'create'])->middleware('permission:cajas.crear')->name('cajas.create');
+    Route::post('/cajas', [CajaController::class, 'store'])->middleware('permission:cajas.crear')->name('cajas.store');
+    Route::get('/cajas/{caja}', [CajaController::class, 'show'])->middleware('permission:cajas.ver')->name('cajas.show');
+    Route::get('/cajas/{caja}/edit', [CajaController::class, 'edit'])->middleware('permission:cajas.editar')->name('cajas.edit');
+    Route::put('/cajas/{caja}', [CajaController::class, 'update'])->middleware('permission:cajas.editar')->name('cajas.update');
+    Route::delete('/cajas/{caja}', [CajaController::class, 'destroy'])->middleware('permission:cajas.eliminar')->name('cajas.destroy');
 
     Route::get('/compras', [CompraController::class, 'index'])->middleware('permission:compras.ver')->name('compras.index');
     Route::get('/compras/create', [CompraController::class, 'create'])->middleware('permission:compras.crear')->name('compras.create');
@@ -85,6 +85,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/movimientos-stock', [MovimientoStockController::class, 'index'])->middleware('permission:movimientos-stock.ver')->name('movimientos-stock.index');
     Route::get('/movimientos-stock/{movimientoStock}', [MovimientoStockController::class, 'show'])->middleware('permission:movimientos-stock.ver')->name('movimientos-stock.show');
+
+    Route::get('/reportes', [ReporteController::class, 'index'])->middleware('permission:reportes.ver')->name('reportes.index');
+    Route::get('/reportes/general/pdf', [ReporteController::class, 'generalPdf'])->middleware('permission:reportes.ver')->name('reportes.general.pdf');
+    Route::get('/reportes/ventas/pdf', [ReporteController::class, 'ventasPdf'])->middleware('permission:reportes.ver')->name('reportes.ventas.pdf');
+    Route::get('/reportes/compras/pdf', [ReporteController::class, 'comprasPdf'])->middleware('permission:reportes.ver')->name('reportes.compras.pdf');
+    Route::get('/reportes/inventario/pdf', [ReporteController::class, 'inventarioPdf'])->middleware('permission:reportes.ver')->name('reportes.inventario.pdf');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

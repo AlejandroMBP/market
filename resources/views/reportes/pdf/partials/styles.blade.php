@@ -1,6 +1,11 @@
 <style>
     * { box-sizing: border-box; }
-    body { color: #111827; font-family: DejaVu Sans, sans-serif; font-size: 11px; margin: 0; }
+    body {
+        color: #111827;
+        font-family: DejaVu Sans,sans-serif;
+        font-size: 11px;
+        margin: 0;
+    }
     .header { border-bottom: 2px solid #111827; margin-bottom: 18px; padding-bottom: 12px; }
     .brand { font-size: 20px; font-weight: bold; margin: 0; }
     .title { font-size: 15px; font-weight: bold; margin: 8px 0 0; }

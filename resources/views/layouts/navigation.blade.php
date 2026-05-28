@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                {{-- @can('ventas.ver')
+                @can('ventas.ver')
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('ventas.index')" :active="request()->routeIs('ventas.*')">
                             Ventas
@@ -24,13 +24,14 @@
                     </div>
                 @endcan
 
+
                 @can('cajas.ver')
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('cajas.index')" :active="request()->routeIs('cajas.*')">
                             Caja
                         </x-nav-link>
                     </div>
-                @endcan --}}
+                @endcan
 
                 @can('productos.ver')
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -142,7 +143,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            {{-- @can('ventas.ver')
+            @can('ventas.ver')
                 <x-responsive-nav-link :href="route('ventas.index')" :active="request()->routeIs('ventas.*')">
                     Ventas
                 </x-responsive-nav-link>
@@ -152,7 +153,7 @@
                 <x-responsive-nav-link :href="route('cajas.index')" :active="request()->routeIs('cajas.*')">
                     Caja
                 </x-responsive-nav-link>
-            @endcan --}}
+            @endcan
 
             @can('productos.ver')
                 <x-responsive-nav-link :href="route('productos.index')" :active="request()->routeIs('productos.*')">
